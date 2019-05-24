@@ -55,5 +55,9 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>APP_NAME</key>
+	<string>$(APP_NAME)</string>
+	<key>API_HOST</key>
+	<string>$(API_HOST)</string>
 </dict>
 </plist>

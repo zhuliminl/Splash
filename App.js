@@ -9,6 +9,13 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 
+
+if(Platform.OS === 'ios'){
+  const iosConfig = require('NativeModules').ConfigModule;
+  const constants = iosConfig.getConstants();
+}
+//const host = 'http://192.168.8.100:3104/api';
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -18,11 +25,14 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+  componentDidMount() {
+    // console.log('=====>>>config.constants', iosConfig.getConstants())
+    //console.log('=====>>>config', iosConfig)
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
       </View>
     );
